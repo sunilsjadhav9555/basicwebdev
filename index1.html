@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boxmodel</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            padding:20px;
+            background-color: dimgrey;
+        }
+        .box-model-demo {
+            width: 300px;
+            height: 200px;
+            padding: 20px;
+            border: 5px solid #333;
+            margin: 30px;
+            background-color: #f0f0f0;
+        }
+        .content-box{
+            box-sizing: content-box;
+            background-color: #ffcccc;
+        }
+        .border-box{
+            box-sizing:border-box;
+            background-color: #ccffcc;
+        }
+        .box-model-demo p {
+                margin: 0;
+        }
+        .highlight
+        {
+            background-color: yellow;
+            display:inline-block
+        }
+        .inline-example{
+            background-color: #cce6ff;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            height: 100px;
+        }
+        .block-example
+        {
+            background-color: #ffccff;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>css box model example</h1>
+    <h2>content-box (Default)</h2>
+    <div class="box-model-demo content-box">
+        <p>This is a content-box element</p>
+        <p>Width: 300px + 40px (padding) + 10px (border) = 350px</p>
+        <p>Height: 200px + 40px (padding) + 10px (border) = 250px</p>
+    </div>
+    <h2>border-box</h2>
+    <div class="box-model-demo border-box">
+        <p>This is a border-box element.</p>
+        <p>Width: 300px (including padding and border)</p>
+        <p>Height: 200px (including padding and border)</p>
+    </div>
+    <h2>inline vs block elements</h2>
+    <p>
+        This is a paragraph with an
+      <span class="inline-example">inline element</span> inside. Inline elements
+      only take up as much width as necessary and allow other elements next to
+      them.
+    </p>
+    <div class="block-example">
+        This is a block-level element. It takes up the full width available and
+      creates a new line before and after it.
+    </div>
+    <h2>Box model components</h2>
+    <p>the box model consistent of:</p>
+    <ul>
+        <li><span class="highlight">Content</span>: The actual content of the box,
+        where text and images appear
+       </li>
+       <li>
+        <span class="highlight">Padding</span>: Clears an area around the
+        content (inside the border)
+       </li>
+       <li>
+        <span class="highlight">Border</span>: A border that goes around the
+        padding and content
+       </li>
+       <li>
+        <span class="highlight">Margin</span>: Clears an area outside the border
+       </li>
+
+    </ul>
+</body>
+</html>
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selectors</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        p{
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .highlight{
+            background-color: aqua;
+        }
+        #header{
+            background-color: brown;
+        }
+        input[type ="text"]{
+            border:2px solid #21a2c9
+        }
+        article p{
+            font-style: italic;
+            background-color: #1a2c4d;
+            color: #fff;
+            padding: 10px;
+        }
+        div>p{
+            background-color: #880404;
+        }
+        h1 + p {
+            font-weight: bold;
+        }
+        h2 ~ p {
+            color:#860303;
+        }
+        a:hover{
+            background-color: #14a50e;
+            text-decoration:none;
+            color:#1a1a1a;
+            padding:5px;
+            margin:4px;
+        }
+        p::first-letter{
+            font-weight: bold;
+            font-size: 30px;
+        }
+        h1,
+        h2,
+        h3{
+            color: darkorange;
+        }
+    </style>
+</head>
+<body style="background-color: dimgrey;">
+       <header id="header">This is the header</header>
+       <h1>main heading</h1>
+       <p>
+        This paragraph is adjacent to h1 and demonstrates the adjacent sibling
+      selector.
+       </p>
+       <p>This is a regular paragraph showing the type selector.</p>
+       <p class="highlight">This paragraph has a highlight class, demonstrating the class selector.</p>
+       <input type ="text" placeholder="Enter text here" /> 
+       <article>
+        <p>
+            This paragraph is inside an article, showing the descendant selector.
+        </p>
+        <p>
+            This paragraph is inside an article, showing the descendant selector.
+        </p>
+        <div>
+            <p>
+             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum,
+          debitis   
+            </p>
+        </div>
+       </article>
+       <div>
+        <p>i am a child</p>
+        <p>i am a child</p>
+        <section>
+            <p>i am a descendant</p>
+        </section>
+        <p>i am a child</p>
+       </div>
+       <h2>sub heading</h2>
+       <p>
+        This is a sibling paragraph to h2, demonstrating the general sibling
+      selector.
+       </p>
+       <div>This is a sibling div to h2.</div>
+       <p>This is another sibling paragraph to h2.</p>
+       <a href="#">Hover over me to see the pseudo-class selector in action</a>
+       <p>This paragraph demonstrates pseudo-element selectors with a styled first
+      line and first letter.</p>
+      <h3>heading 3</h3>
+      <p>The headings h1, h2, and h3 use the grouping selector for consistent font
+      family.
+    </p>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stylecss</title>
+    <style>
+        h2{
+            color: brown;
+        }
+        .deta{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: cadetblue;">Lorem ipsum dolor sit amet consectetur.</h1>
+    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+    <p class="deta">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam possimus aperiam itaque iure, excepturi, eligendi vel distinctio repudiandae accusantium tenetur dolorem. Sapiente aut ex tenetur nulla facere doloribus itaque laboriosam, est, illo consequuntur, et cupiditate temporibus mollitia distinctio perspiciatis qui nam dolorem debitis quibusdam? Numquam vel illo impedit perferendis praesentium cupiditate soluta officia qui itaque unde alias, harum ea, quaerat explicabo veritatis. Voluptates officiis non quo, porro sed consequuntur corporis laborum ratione unde adipisci eum exercitationem. Dolorum est animi aspernatur a iste deserunt rem inventore, debitis enim ex laborum at minima molestiae voluptas suscipit fugit corrupti voluptates! Eum, molestiae sed.</p>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logine page</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #1a1a1a;
+            margin:0;
+            padding:0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card
+        {
+            background-color: #979494;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+        }
+        h2{
+            color: aliceblue;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        input{
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 20px;
+            background-color: #e4dfdf;
+        }
+        button{
+            background-color: #e4dfdf;
+            color: #fff;
+            padding:10px;
+            border-radius: 8px;
+
+        }
+        button:hover{
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>login</h2>
+        <form action="">
+            <input type="email" name="" id="" placeholder="email">
+            <input type="password" name="" id="" placeholder="password">
+            <button type="submit">login</button>
+        </form>
+    </div>
+</body>
+</html>
+-->
